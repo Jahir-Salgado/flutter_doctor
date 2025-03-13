@@ -23,7 +23,8 @@ class AuthScreen extends StatefulWidget {
   _AuthScreenState createState() => _AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateMixin {
+class _AuthScreenState extends State<AuthScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -118,7 +119,8 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
           ),
           SizedBox(height: 20),
           TextField(
-            controller: TextEditingController(text: _registeredEmail), // Muestra el email registrado
+            controller: TextEditingController(
+                text: _registeredEmail), // Muestra el email registrado
             decoration: InputDecoration(
               labelText: 'Email',
               border: OutlineInputBorder(),
@@ -126,7 +128,8 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
           ),
           SizedBox(height: 20),
           TextField(
-            controller: TextEditingController(text: _registeredPassword), // Muestra la contraseña registrada
+            controller: TextEditingController(
+                text: _registeredPassword), // Muestra la contraseña registrada
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'Contraseña',
@@ -193,7 +196,8 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                const url = 'https://us05web.zoom.us/j/82789212171?pwd=m4wKaRwRNbVv3RwERha5wuFaZRqXw1.1';
+                const url =
+                    'https://us05web.zoom.us/j/82789212171?pwd=m4wKaRwRNbVv3RwERha5wuFaZRqXw1.1';
                 if (await canLaunch(url)) {
                   await launch(url);
                 } else {
@@ -206,7 +210,7 @@ class HomeScreen extends StatelessWidget {
 
             // Sección de Chatbot IA
             Text(
-              'Chatbot IA',
+              'Chat',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
@@ -251,7 +255,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         _messageController.clear();
 
         if (!_showDiseaseSelection) {
-          _messages.add('ChatBot: Hola, ¿en qué puedo ayudarte?');
+          _messages.add('Chat: Hola, ¿en qué puedo ayudarte?');
           _showDiseaseSelection = true; // Mostrar la selección de enfermedades
         }
       });
@@ -277,7 +281,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         _messages.add(
             'Chat: Para el dolor de cabeza, se recomienda tomar antihistamínicos para reducir el dolor, estar en un lugar oscuro y tranquilo y también usar toallas frías que pueden ayudar a aliviar el dolor de cabeza.');
       }
-      _messages.add('Chat: Espero haberte ayudado con tu malestar o inquietud.');
+      _messages
+          .add('Chat: Espero haberte ayudado con tu malestar o inquietud.');
       _isChatClosed = true; // Cerrar el chat después de la selección
     });
   }
@@ -285,7 +290,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   void _resetChat() {
     setState(() {
       _messages.clear(); // Vaciar la lista de mensajes
-      _showDiseaseSelection = true; // Mostrar directamente las opciones de selección
+      _showDiseaseSelection =
+          true; // Mostrar directamente las opciones de selección
       _isChatClosed = false; // Restablecer el estado del chat
     });
   }
@@ -355,12 +361,15 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                       hintText: 'Escribe tu consulta...',
                       border: InputBorder.none,
                     ),
-                    enabled: !_isChatClosed, // Deshabilitar el campo de texto si el chat está cerrado
+                    enabled:
+                        !_isChatClosed, // Deshabilitar el campo de texto si el chat está cerrado
                   ),
                 ),
                 IconButton(
                   icon: Icon(Icons.send),
-                  onPressed: _isChatClosed ? null : _sendMessage, // Deshabilitar el botón si el chat está cerrado
+                  onPressed: _isChatClosed
+                      ? null
+                      : _sendMessage, // Deshabilitar el botón si el chat está cerrado
                 ),
               ],
             ),
